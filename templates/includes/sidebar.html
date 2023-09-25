@@ -1,0 +1,87 @@
+<div class="col-md-4">
+    <div class="cart-detail bg-light p-3 p-md-4">
+        <h3 class="billing-heading mb-4">My Account {% if user.is_admin == True %} (ADMIN) {% else %} {% endif %}</h3>
+
+            
+                    <div class="col-md-12">
+                        <div class="radio">
+                        <p><a class="list-group-item list-group-item-{% if '/account/' in request.path %}info{% endif %}" href="{% url 'account' %}">Dashboard</a></p>
+                        </div>
+                    </div>
+                      <div class="col-md-12">
+                          <div class="radio">
+                            <p><a class="list-group-item list-group-item-{% if '/edit_profile/'  in request.path %}info{% endif %}" href="{% url 'edit_profile' %}">Edit My Account</a></p> 
+                          </div>
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="radio">
+                           <p><a class="list-group-item list-group-item-{% if '/change_password/'  in request.path %}info{% endif %}" href="{% url 'change_password' %}">Change Password</a></p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="radio">
+                         <p><a class="list-group-item list-group-item-{% if '/savings/total/'  in request.path %}info{% endif %}" href="{% url 'total' %}">View Total Contributions</a></p>
+                      </div>
+                  </div>
+
+                    {% if user.is_admin == True %}
+
+                    
+                    <div class="col-md-12">
+                      <div class="radio">
+                        <p><a class="list-group-item list-group-item-{% if '/savings/view_users/'  in request.path %}info{% endif %}" href="{% url 'view_users' %}">View Users</a></p>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="radio">
+                          <p><a class="list-group-item list-group-item-{% if '/savings/view_contributions/'  in request.path %}info{% endif %}" href="{% url 'view_contributions' %}">View Contributions</a></p>
+                        </div>
+                    </div>
+                    
+
+           
+                    {% else %}
+                    <div class="col-md-12">
+                      <div class="radio">
+                         <p><a class="list-group-item list-group-item-{% if '/inbox/'  in request.path %}info{% endif %}"  href="{% url 'inbox' %}">Inbox</a></p>
+                      </div>
+                  </div>
+
+                    <div class="col-md-12">
+                      <div class="radio">
+                         <p><a class="list-group-item list-group-item-{% if '/savings/contribute/'  in request.path %}info{% endif %}"  href="{% url 'contribute' %}">Contribute</a></p>
+                      </div>
+                  </div>
+
+                  
+                  <div class="col-md-12">
+                    <div class="radio">
+                       <p><a class="list-group-item list-group-item-{% if '/savings/withdraw/'  in request.path %}info{% endif %}"href="{% url 'withdraw' %}">Withdraw</a></p>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="radio">
+                    <p><a class="list-group-item list-group-item-{% if '/savings/balance/'  in request.path %}info{% endif %}" href="{% url 'balance' %}">Check Balance</a></p>
+                  </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="radio">
+                  <p><a class="list-group-item list-group-item-{% if '/savings/contributions_histroy/'  in request.path %}info{% endif %}" href="{% url 'contributions_histroy' %}">Contribution History</a></p>
+                </div>
+            </div>
+                  {% endif %}
+
+                    
+
+
+                    
+
+                    
+                
+    </div>
+</div>

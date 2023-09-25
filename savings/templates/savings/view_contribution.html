@@ -1,0 +1,71 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="hero-wrap hero-bread" style="background-image: url('/static/images/chama8.jpg');">
+    <div class="container">
+      <div class="row no-gutters slider-text align-items-center justify-content-center">
+        <div class="col-md-9 ftco-animate text-center">
+            <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'account' %}">Verify Contibutions</a></span> </p>
+          <h1 class="mb-0 bread">Verify</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<section class="ftco-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-12 ftco-animate">
+                      
+            <div class="row d-flex">
+                
+
+
+                <div class="col-md-12">
+                    <div class="col-md-12 d-flex">
+                        
+                        <div class="col-md-12 ftco-animate">
+                            <div class="cart-list">
+                                <table class="table">
+                                    <thead class="thead-primary">
+                                      <tr class="text-center">
+                                        <th>Profile</th>
+                                        <th>Full Name</th>
+                                        <th>Amount</th>
+                                        <th>Transaction ID</th>
+                                        <th>Date</th>
+                                        <th>Accept</th>
+                                        <th>Decline</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      
+                                        {% for saving in savings %}
+                                      <tr class="text-center">
+                                        <td class="image-prod"><img src="{{saving.user.userprofile.profile_picture.url}}" alt="Avatar"  width="90" height="90" style="border-radius:50%"></div></td>
+                                        <td class="price">{{saving.user.first_name}} {{saving.user.last_name}}</td>
+                                        <td class="price">{{saving.savings}}</td>
+                                        <td class="price">{{saving.transaction_id}}</td>
+                                        <td class="price">{{saving.created_date}}</td>
+                                        <td class="product-remove"><a href="{% url 'verify_contributions' saving.id  %}"><span class="ion-ios-add"></span></a></td>
+                                        <td class="product-remove"><a href="{% url 'decline_contributions' saving.id  %}"><span class="ion-ios-close"></span></a></td>
+    
+                                      </tr><!-- END TR-->
+                                      {% endfor %}
+                                     
+                                    </tbody>
+                                  </table>
+                              </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div> <!-- .col-md-8 -->
+      </div>
+    </div>
+  </section> <!-- .section -->
+  
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+  <section class="ftco-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-8  ftco-animate">
+            <form  method="POST" class="billing-form">
+              {% csrf_token %}
+                <h3 class="mb-4 billing-heading">LOGIN</h3>
+                <div class="row align-items-end">
+                 
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="email">Email</label>
+                    <input type="email" name="email" class="form-control" placeholder="E-mail" required>
+                    </div>
+                  </div>
+                  <div class="w-100"></div>
+
+                  <div class="col-md-6">
+                  <div class="form-group">
+                      <label for="phone">Password</label>
+                    <input type="password" name="password" class="form-control" placeholder="password" required>
+                  </div>
+                  {% include 'includes/alerts.html' %}
+                </div>
+
+                
+              <div class="w-100"></div>
+
+              <div class="col-md-12">
+              
+                <div class="form-group mt-4">
+                    <div class="radio">
+                     
+                        <label class="mr-3">Create Account? <a href="{% url 'register' %}">Register</a></label>
+                        <label>Forgot Password? <a href="{% url 'forgotpassword' %}">Reset</a></label>
+                        
+                    </div>
+                </div>
+            </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                    <input class="btn btn-primary py-3 px-4" type="submit" value="Login"/>
+                </div>
+              </div>
+
+              </div>
+            </form><!-- END -->
+                
+            </div>
+        </div> <!-- .col-md-8 -->
+      </div>
+    </div>
+  </section> <!-- .section -->
+
+{% endblock content %}

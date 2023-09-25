@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>All Users</title>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="text-center">Users Report</h2>
+        <p class="text-center">{{user_count}} Users Registered in the system</p>            
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+             
+              <th>Full Name</th>
+              <th>Username</th>
+              <th>Phone Number</th>
+              <th>Email</th>
+              <th>Location</th>
+              <th>Gender</th>
+              <th>Active</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for user in user_details %}
+           
+            <tr>
+              
+              <td>{{user.user.first_name}} {{user.user.first_name}}</td>
+              <td>{{user.user.username}}</td>
+              <td>{{user.user.phone_number}}</td>
+              <td>{{user.user.email}}</td>
+              <td>{{user.city}},{{user.country}}</td>
+              <td>{{user.gender}}</td>
+              <td>{{user.user.is_active}}</td>
+            </tr>
+            {% endfor %}
+           
+        
+          </tbody>
+        </table>
+      </div>
+    
+</body>
+</html>

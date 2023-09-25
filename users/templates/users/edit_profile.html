@@ -1,0 +1,101 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="hero-wrap hero-bread" style="background-image: url('/static/images/chama8.jpg');">
+    <div class="container">
+      <div class="row no-gutters slider-text align-items-center justify-content-center">
+        <div class="col-md-9 ftco-animate text-center">
+            <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'account' %}">Account</a></span> </p>
+          <h1 class="mb-0 bread">Edit Account</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<section class="ftco-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-12 ftco-animate">
+                      
+            <div class="row d-flex">
+                
+                {% include 'includes/sidebar.html' %}
+
+                <div class="col-md-8">
+                    <div class="cart-detail bg-light p-3 p-md-4">
+                        <h3 class="billing-heading mb-4">Edit Account</h3>
+                        <form action="{% url 'edit_profile' %}" method="POST" class="billing-form" enctype="multipart/form-data">
+                            {% csrf_token %}
+                        <div class="row align-items-end">
+                            <div class="col-md-6">
+                          <div class="form-group">
+                              <label for="firstname">First Name</label>
+                              {{user_form.first_name}} 
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                              <label for="lastname">Last Name</label>
+                              {{user_form.last_name}}
+                          </div>
+                      </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            {{user_form.phone_number}}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="picture" >Profile Picture</label>
+                            {{profile_form.profile_picture}}
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            {{profile_form.gender}}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="city">City</span></label>
+                            {{profile_form.city}}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            {{profile_form.country}}
+                        </div>
+                    </div>
+                   
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="btn btn-primary py-3 px-4 " type="submit" value="Update Details"/>
+                        </div>
+                      </div>
+
+                    </div> 
+                   </form>     
+                        
+                    
+                                  
+                        
+                    </div>
+                </div>
+            </div>
+        </div> <!-- .col-md-8 -->
+      </div>
+    </div>
+  </section> <!-- .section -->
+  
+
+{% endblock %}
